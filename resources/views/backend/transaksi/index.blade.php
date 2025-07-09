@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header bg-secondary">
+                    <div class="card-header bg-secondary text-white">
                         Data Transaksi Kas
                         <a href="{{ route('backend.transaksi.create') }}" class="btn btn-info btn-sm"
                             style="text-color:white;  float: right">
@@ -33,23 +33,24 @@
                                     @foreach ($transaksi as $data)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $data->users->name }}</td>
+                                            <td>{{ $data->user->name }}</td>
+                                            <td>{{ $data->jenis }}</td>
                                             <td>{{ $data->jumlah }}</td>
-                                            <td>{{ $data->Keterangan}}</td>
-                                            
+                                            <td>{{ Str::limit($data->keterangan, 30) }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->format('d M Y') }}</td>
                                             <td>
-                                                <a href="{{ route('backend.siswa.edit', $data->id) }}"
+                                                <a href="{{ route('backend.transaksi.edit', $data->id) }}"
                                                     class="btn btn-sm btn-warning">
                                                     Edit
+                                                </a> 
+                                                <a href="{{ route('backend.transaksi.show', $data->id) }}"
+                                                    class="btn btn-sm btn-success">
+                                                    Show
+                                                </a> 
+                                                <a href="{{ route('backend.transaksi.destroy', $data->id) }}"
+                                                    class="btn btn-sm btn-danger" data-confirm-delete="true">
+                                                    Delete
                                                 </a>
-
-                                                <form action="{{ route('backend.siswa.destroy', $data->id) }}"
-                                                    method="POST" style="display:inline-block;"
-                                                    onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                                </form>
                                             </td>
 
                                         </tr>

@@ -42,9 +42,9 @@
                             </div>
                             <div class="d-md-flex align-items-center">
                                 <div class="mt-3 mt-md-0 ms-auto">
-                                    <button type="submit" class="btn btn-primary  hstack gap-6">
-                                        <i class="ti ti-send fs-4"></i>
-                                        Submit
+                                    <button type="submit" class="btn btn-warning hstack gap-6">
+                                        <i class="ti ti-edit fs-4"></i>
+                                        Update
                                     </button>
                                 </div>
                             </div>

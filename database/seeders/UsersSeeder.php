@@ -14,7 +14,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->delete();
 
         \App\Models\User::create([
-            'name'     => 'Admin',
+            'name'     => 'Pahri(Admin)',
             'email'    => 'admin@gmail.com',
             'password' => bcrypt('rahasia'),
             'isAdmin'  => 1,

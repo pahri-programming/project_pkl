@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header bg-secondary">
+                    <div class="card-header bg-secondary text-white">
                         Data Akun
                         <a href="{{ route('backend.akun.create') }}" class="btn btn-info btn-sm"
                             style="text-color:white;  float: right">

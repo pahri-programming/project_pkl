@@ -45,24 +45,29 @@ class UserController extends Controller
 
     public function edit(User $user, $id)
     {
-        $akun = User::findOrFail($id); // Atau model apa pun yang kamu pakai untuk "akun"
+        $akun = User::findOrFail($id); 
         return view('backend.akun.edit', compact('akun'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
+        // ambil user berdasarkan id
+        $user = User::findOrFail($id); 
+    
         $request->validate([
             'name'  => 'required|string',
             'email' => 'required|email|unique:users,email,' . $user->id,
         ]);
-
+    
         $user->update([
             'name'  => $request->name,
             'email' => $request->email,
         ]);
+    
         toast('Data berhasil di Edit', 'success');
         return redirect()->route('backend.akun.index');
     }
+    
 
     public function destroy(User $user, $id)
     {
