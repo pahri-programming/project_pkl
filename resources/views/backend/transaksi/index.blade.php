@@ -9,7 +9,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header bg-secondary text-white">
-                        Data Transaksi Kas
+                        Data Transaksi 
                         <a href="{{ route('backend.transaksi.create') }}" class="btn btn-info btn-sm"
                             style="text-color:white;  float: right">
                             Tambah
@@ -21,7 +21,6 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
                                         <th>Jenis</th>
                                         <th>Jumlah</th>
                                         <th>Keterangan</th>
@@ -33,9 +32,8 @@
                                     @foreach ($transaksi as $data)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $data->user->name }}</td>
                                             <td>{{ $data->jenis }}</td>
-                                            <td>{{ $data->jumlah }}</td>
+                                            <td>Rp {{ number_format($data->jumlah, 0, ',', '.') }}</td>
                                             <td>{{ Str::limit($data->keterangan, 30) }}</td>
                                             <td>{{ \Carbon\Carbon::parse($data->tanggal)->format('d M Y') }}</td>
                                             <td>

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="card">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-primary text-white fw-bold">
                     Tambah Data Akun
                 </div>
                 <div class="card-body">

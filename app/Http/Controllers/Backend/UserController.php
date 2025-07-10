@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -51,22 +52,27 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        // ambil user berdasarkan id
-        $user = User::findOrFail($id); 
+        $akun = User::findOrFail($id);
     
         $request->validate([
-            'name'  => 'required|string',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'nullable|min:6|confirmed',
         ]);
     
-        $user->update([
-            'name'  => $request->name,
-            'email' => $request->email,
-        ]);
+        $akun->name = $request->name;
+        $akun->email = $request->email;
     
-        toast('Data berhasil di Edit', 'success');
+        if ($request->filled('password')) {
+            $akun->password = Hash::make($request->password);
+        }
+    
+        $akun->save();
+    
+        toast('Data akun berhasil diperbarui', 'success');
         return redirect()->route('backend.akun.index');
     }
+    
     
 
     public function destroy(User $user, $id)
