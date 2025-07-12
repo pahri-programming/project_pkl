@@ -2,16 +2,9 @@
     <div><!-- ---------------------------------- -->
         <!-- Start Vertical Layout Sidebar -->
         <!-- ---------------------------------- -->
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="{{ asset('assets/backendndex.html') }}" class="text-nowrap logo-img">
-                <img src="{{ asset('assets/backend/images/logos/dark-logo.svg') }}" class="dark-logo" alt="Logo-Dark" />
-                <img src="{{ asset('assets/backend/images/logos/light-logo.svg') }}" class="light-logo" alt="Logo-light" />
-            </a>
-            <a href="javascript:void(0)" class="sidebartoggler ms-auto text-decoration-none fs-5 d-block d-xl-none">
-                <i class="ti ti-x"></i>
-            </a>
+        <div class="sidebar p-3">
+            @include('partials.logo') <!-- kalau kamu pisahkan ke partial -->
         </div>
-
         <nav class="sidebar-nav scroll-sidebar" data-simplebar>
             <ul id="sidebarnav">
                 <!-- ---------------------------------- -->
@@ -86,6 +79,16 @@
                         <span class="hide-menu">Pembayaran</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('backend.report.index') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M5 4v16h14V4H5Zm-2 0a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4Zm4 4h10v2H7V8Zm0 4h10v2H7v-2Z" />
+                        </svg>
+                        <span class="hide-menu">Laporan</span>
+                    </a>
+                </li>
             </ul>
         </nav>
 
@@ -97,7 +100,7 @@
                 </div>
                 <div class="john-title">
                     <h6 class="mb-0 fs-4 fw-semibold">{{ Auth::user()->name }}</h6>
-                    <span class="fs-2">{{ Auth::user()->isAdmin == 1 ? 'admin' : '' }}</span>
+                    <span class="fs-2">{{ Auth::user()->isAdmin == 1 ? 'Bendahara' : '' }}</span>
                 </div>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

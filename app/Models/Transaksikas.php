@@ -8,5 +8,7 @@ class Transaksikas extends Model
 {
     public $fillable = ['jenis','jumlah','keterangan','tanggal'];
     
-    
+    protected $casts = [
+        'tanggal' => 'datetime',
+    ];
 }

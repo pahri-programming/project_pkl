@@ -16,7 +16,7 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <div class="table-reponsive">
+                        <div class="table-responsive">
                             <table class="table" id="dataCategory">
                                 <thead>
                                     <tr>
@@ -24,6 +24,7 @@
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Role</th>
+                                        <th>Status Pembayaran</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -35,10 +36,22 @@
                                             <td>{{ $data->email }}</td>
                                             <td>{{ $data->isAdmin ? 'Admin' : 'Member' }}</td>
                                             <td>
+                                                <span
+                                                    class="badge
+                                                @if ($data->status_semester == 'Rajin') bg-success
+                                                @elseif ($data->status_semester == 'Kadang-kadang') bg-warning
+                                                @elseif ($data->status_semester == 'Jarang') bg-primary
+                                                @else bg-danger @endif">
+                                                    {{ $data->status_semester }}
+                                                </span>
+                                            </td>
+
+
+                                            <td>
                                                 <a href="{{ route('backend.akun.edit', $data->id) }}"
                                                     class="btn btn-sm btn-warning">
                                                     Edit
-                                                </a> 
+                                                </a>
                                                 @if ($data->isAdmin == 1 && $loop->first)
                                                 @else
                                                     <a href="{{ route('backend.akun.destroy', $data->id) }}"

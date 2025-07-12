@@ -16,7 +16,7 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <div class="table-reponsive">
+                        <div class="table-responsive">
                             <table class="table" id="dataCategory">
                                 <thead>
                                     <tr>

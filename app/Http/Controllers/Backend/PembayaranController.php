@@ -40,7 +40,7 @@ class PembayaranController extends Controller
     {
         $request->validate([
             'user_id' => 'required',
-            'jumlah'  => 'required|numeric',
+            'jumlah'  => 'required|numeric|min:1',
             'tanggal' => 'required|date',
         ]);
 
@@ -116,7 +116,7 @@ class PembayaranController extends Controller
     {
         $request->validate([
             'user_id' => 'required',
-            'jumlah'  => 'required|numeric',
+            'jumlah'  => 'required|numeric|min:1',
             'tanggal' => 'required|date',
         ]);
 
@@ -181,6 +181,7 @@ class PembayaranController extends Controller
 
     }
 
+   
     /**
      * Remove the specified resource from storage.
      */

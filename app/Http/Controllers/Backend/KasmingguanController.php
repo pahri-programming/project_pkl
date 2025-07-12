@@ -47,6 +47,7 @@ class KasmingguanController extends Controller
         return view('backend.kasmingguan.show', compact('kasmingguan', 'totalJumlah', 'tanggalList'));
     }
 
+   
     public function destroy(string $id)
     {
         $kasmingguan = Kasmingguan::findOrFail($id);

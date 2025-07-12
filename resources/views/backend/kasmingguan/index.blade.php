@@ -12,7 +12,7 @@
                         Data Kas
                     </div>
                     <div class="card-body">
-                        <div class="table-reponsive">
+                        <div class="table-responsive">
                             <table class="table" id="dataCategory">
                                 <thead>
                                     <tr>
@@ -30,20 +30,20 @@
                                     @foreach ($kasmingguan as $data)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $data->user->name }}</td>
+                                            <td>{{ $data->users->name }}</td>
                                             <td>
-                                                <span
-                                                    class="badge {{ $data->status == 'lunas' ? 'bg-success' : 'bg-warning text-dark' }}">
-                                                    {{ ucfirst($data->status) }}
-                                                </span>
+                                                @if ($data->status == 'belum')
+                                                    <span class="badge bg-danger text-dark">Belum</span>
+                                                @elseif($data->status == 'lunas')
+                                                    <span class="badge bg-success text-dark">Lunas</span>
+                                                @endif
                                             </td>
-
                                             <td>{{ $data->minggu_ke }}</td>
                                             <td>
-                                                {{ \Carbon\Carbon::create(null, $data->bulan, 1)->locale('id')->translatedFormat('F') }}
+                                                {{ \Carbon\Carbon::create()->month($data->bulan)->locale('id')->translatedFormat('F')}}
                                             </td>
                                             <td>Rp {{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tanggal_bayar)->locale('id')->translatedFormat('d F Y') }}</td>
+                                           <td>{{ \Carbon\Carbon::parse($data->tanggal_bayar)->locale('id')->translatedFormat('d F Y') }}</td>
                                             <td>
                                                 <a href="{{ route('backend.kasmingguan.show', $data->id) }}"
                                                     class="btn btn-sm btn-success">

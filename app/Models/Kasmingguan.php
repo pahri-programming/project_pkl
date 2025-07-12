@@ -12,9 +12,9 @@ class Kasmingguan extends Model
         'user_id', 'status', 'minggu_ke', 'bulan', 'jumlah', 'tanggal_bayar',
     ];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 }
 
