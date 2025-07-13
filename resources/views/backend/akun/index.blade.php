@@ -23,7 +23,7 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Role</th>
+                                        <th>Jabatan</th>
                                         <th>Status Pembayaran</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -34,7 +34,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->email }}</td>
-                                            <td>{{ $data->isAdmin ? 'Admin' : 'Member' }}</td>
+                                            <td>{{ $data->isAdmin ? 'Bendahara' : 'Siswa' }}</td>
                                             <td>
                                                 <span
                                                     class="badge

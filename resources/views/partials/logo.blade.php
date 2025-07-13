@@ -3,10 +3,25 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 @endsection
+<style>
+    .logo-text {
+        margin-top: 6px;
+    }
+
+    .text-gradient-blue {
+        background: linear-gradient(45deg, #0d6efd, #282828);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
 <div class="d-flex align-items-center mb-4">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" class="bi bi-wallet2 me-2" viewBox="0 0 16 16">
-        <path d="M12 7c-.5 0-.5.5-.5.5s0 .5.5.5.5-.5.5-.5 0-.5-.5-.5zm-1.5.5c0-.5.5-.5.5-.5s.5 0 .5.5-.5.5-.5.5-.5 0-.5-.5z"/>
-        <path d="M14 4H1a1 1 0 0 0-1 1v6.5A2.5 2.5 0 0 0 2.5 14H14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm0 1v1H2a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" class="bi bi-wallet2 me-2"
+        viewBox="0 0 16 16">
+        <path
+            d="M12 7c-.5 0-.5.5-.5.5s0 .5.5.5.5-.5.5-.5 0-.5-.5-.5zm-1.5.5c0-.5.5-.5.5-.5s.5 0 .5.5-.5.5-.5.5-.5 0-.5-.5z" />
+        <path
+            d="M14 4H1a1 1 0 0 0-1 1v6.5A2.5 2.5 0 0 0 2.5 14H14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm0 1v1H2a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2z" />
     </svg>
-    <h4 class="fw-bold mb-0 text-primary">DanaKas</h4>
+    <h4 class="fw-bold mb-0 logo-text text-gradient-blue">DanaKas</h4>
+
 </div>

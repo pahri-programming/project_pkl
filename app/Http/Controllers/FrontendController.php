@@ -1,9 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Transaksikas;
+use App\Models\Pembayaran;
 
 class FrontendController extends Controller
 {
@@ -12,7 +13,22 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $totalPemasukan  = Transaksikas::where('jenis', 'pemasukan')->sum('jumlah');
+        $totalPengeluaran = Transaksikas::where('jenis', 'pengeluaran')->sum('jumlah');
+
+        $totalPembayaran = Pembayaran::sum('jumlah');
+        $saldokas        = $totalPembayaran + $totalPemasukan - $totalPengeluaran;
+
+        $transaksi = Transaksikas::where('jenis', 'pengeluaran')->get();
+
+        return view('index', compact(
+            'totalPemasukan',
+            'totalPengeluaran',
+            'totalPembayaran',
+            'saldokas',
+            'transaksi'
+        ));
+
     }
 
     /**

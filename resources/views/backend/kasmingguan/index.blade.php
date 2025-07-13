@@ -18,6 +18,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Jabatan</th>
                                         <th>Status</th>
                                         <th>Minggu Ke</th>
                                         <th>Bulan</th>
@@ -31,6 +32,11 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->users->name }}</td>
+                                            @if ($data->users->isAdmin == 1)
+                                                <td>Bendahara</td>
+                                            @else
+                                                <td>Siswa</td>
+                                            @endif
                                             <td>
                                                 @if ($data->status == 'belum')
                                                     <span class="badge bg-danger text-dark">Belum</span>
@@ -40,10 +46,11 @@
                                             </td>
                                             <td>{{ $data->minggu_ke }}</td>
                                             <td>
-                                                {{ \Carbon\Carbon::create()->month($data->bulan)->locale('id')->translatedFormat('F')}}
+                                                {{ \Carbon\Carbon::create()->month($data->bulan)->locale('id')->translatedFormat('F') }}
                                             </td>
                                             <td>Rp {{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                                           <td>{{ \Carbon\Carbon::parse($data->tanggal_bayar)->locale('id')->translatedFormat('d F Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal_bayar)->locale('id')->translatedFormat('d F Y') }}
+                                            </td>
                                             <td>
                                                 <a href="{{ route('backend.kasmingguan.show', $data->id) }}"
                                                     class="btn btn-sm btn-success">

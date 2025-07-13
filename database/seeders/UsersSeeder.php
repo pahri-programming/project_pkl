@@ -21,9 +21,9 @@ class UsersSeeder extends Seeder
         ]);
 
         \App\Models\User::create([
-            'name'     => 'Member',
-            'email'    => 'member@gmail.com',
-            'password' => bcrypt('rahasia'),
+            'name'     => 'Almalik',
+            'email'    => 'Almalik@gmail.com',
+            'password' => bcrypt('12345678'),
             'isAdmin'  => 0,
         ]);
 
