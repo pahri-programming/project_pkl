@@ -15,7 +15,10 @@ Route::get('/', function () {
 })->middleware('auth');
 
 
+
+
 Route::get('/', [FrontendController::class, 'index'])->middleware('auth');
+Route::get('/profile/{id}', [FrontendController::class, 'profile'])->name('profile');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

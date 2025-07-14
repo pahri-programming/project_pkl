@@ -18,7 +18,7 @@ class UserController extends Controller
 
         foreach ($users as $user) {
             // Misalnya semester 1: bulan 1–6
-            $jumlahBayar = KasMingguan::where('user_id', $user->id)
+            $jumlahBayar = Kasmingguan::where('user_id', $user->id)
                 ->whereBetween('bulan', [1, 12])
                 ->where('status', 'lunas')
                 ->count();

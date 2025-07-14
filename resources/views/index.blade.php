@@ -10,8 +10,7 @@
                 <div class="row gy-5 justify-content-between">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2><span>Dana </span><span class="accent">Kas</span></h2>
-                        <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque
-                            eum quaerat.</p>
+                        <p>Menampilkan Saldo Kas Dan Pengeluaran</p>
 
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2">
@@ -68,7 +67,7 @@
                                             <td>{{ $data->jenis }}</td>
                                             <td>{{ number_format($data->jumlah, 0, '.', '.') }}</td>
                                             <td>{{ $data->keterangan }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->translatedFormat('d M Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->translatedFormat('d M Y') }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

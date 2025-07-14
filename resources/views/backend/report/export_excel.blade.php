@@ -45,7 +45,7 @@
                     <td>{{ ucfirst($data->jenis) }}</td>
                     <td>Rp. {{ number_format($data->jumlah, 0, ',', '.') }}</td>
                     <td>{{ $data->keterangan }}</td>
-                    <td>{{ \Carbon\Carbon::parse($data->tanggal)->translatedFormat('d F Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->translatedFormat('d F Y') }}</td>
                 </tr>
             @endforeach
             <tr>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon icon-->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/backend/images/logos/favicon.png') }}" />
+    <link href="{{ asset('assets/frontend/img/favicon_io/favicon.ico') }}?v=2" rel="icon">
 
     <!-- Core Css -->
     <link rel="stylesheet" href="{{ asset('assets/backend/css/styles.css') }}" />
@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
-    <title>Modernize Bootstrap Admin</title>
+    <title>DanaKas</title>
     <!-- Owl Carousel  -->
     <link rel="stylesheet" href="{{ asset('assets/backend/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}" />
     @yield('styles')
@@ -37,7 +37,8 @@
     </div>
     <!-- Preloader -->
     <div class="preloader">
-        <img src="{{ asset('assets/backend/images/logos/favicon.png') }}" alt="loader" class="lds-ripple img-fluid" />
+        <img src="{{ asset('assets/frontend/img/favicon_io/favicon.ico') }}" alt="loader" class="lds-ripple img-fluid" />
+        
     </div>
     <div id="main-wrapper">
         <!-- Sidebar Start -->

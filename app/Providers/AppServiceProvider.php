@@ -1,6 +1,9 @@
 <?php
 namespace App\Providers;
+
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Carbon::setLocale(config('app.locale'));
         date_default_timezone_set(config('app.timezone'));
+        App::setLocale('id');
 
     }
 }

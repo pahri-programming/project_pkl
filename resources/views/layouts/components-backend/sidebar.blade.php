@@ -100,7 +100,7 @@
                 </div>
                 <div class="john-title">
                     <h6 class="mb-0 fs-4 fw-semibold">{{ Auth::user()->name }}</h6>
-                    <span class="fs-2">{{ Auth::user()->isAdmin == 1 ? 'Bendahara' : '' }}</span>
+                    <span class="fs-2">{{ Auth::user()->isAdmin == 1 ? 'Bendahara' : 'Siswa' }}</span>
                 </div>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - Impact Bootstrap Template</title>
+    <title>DanaKas</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="{{ asset('assets/frontend/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets/frontend/img/favicon_io/favicon.ico') }}?v=2" rel="icon">
     <link href="{{ asset('assets/frontend/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
@@ -44,7 +44,10 @@
     @include('layouts.components-frontend.navbar')
     {{-- akhir header --}}
     {{-- awal main --}}
-    @yield('content')
+    <main class="mt-5">
+        @yield('content')
+    </main>
+
     {{-- akhir main --}}
     {{-- awal footer --}}
     @include('layouts.components-frontend.footer')

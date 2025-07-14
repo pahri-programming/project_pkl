@@ -180,7 +180,7 @@
                                                 <td>{{ \Carbon\Carbon::create()->month($data->bulan)->translatedFormat('F') }}
                                                 </td>
                                                 <td>Rp {{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($data->tanggal_bayar)->translatedFormat('d M Y') }}
+                                                <td>{{ \Carbon\Carbon::parse($data->tanggal_bayar)->locale('id')->translatedFormat('d M Y') }}
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('backend.kasmingguan.show', $data->id) }}"

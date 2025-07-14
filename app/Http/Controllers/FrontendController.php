@@ -2,9 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Transaksikas;
 use App\Models\Pembayaran;
+use App\Models\Transaksikas;
+use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
@@ -13,7 +13,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $totalPemasukan  = Transaksikas::where('jenis', 'pemasukan')->sum('jumlah');
+        $totalPemasukan   = Transaksikas::where('jenis', 'pemasukan')->sum('jumlah');
         $totalPengeluaran = Transaksikas::where('jenis', 'pengeluaran')->sum('jumlah');
 
         $totalPembayaran = Pembayaran::sum('jumlah');
@@ -28,6 +28,14 @@ class FrontendController extends Controller
             'saldokas',
             'transaksi'
         ));
+
+    }
+
+    public function profile($id)
+    {
+        $jumlahuang = Pembayaran::where('user_id', $id)->sum('jumlah');
+
+        return view('profile', compact('jumlahuang'));
 
     }
 

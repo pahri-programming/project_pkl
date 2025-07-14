@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table" id="dataCategory">
+                            <table class="table" id="dataAkun">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -78,6 +78,6 @@
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
     <script>
-        new DataTable('#dataCategory');
+        new DataTable('#dataAkun');
     </script>
 @endpush

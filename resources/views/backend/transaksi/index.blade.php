@@ -35,7 +35,7 @@
                                             <td>{{ $data->jenis }}</td>
                                             <td>Rp {{ number_format($data->jumlah, 0, ',', '.') }}</td>
                                             <td>{{ Str::limit($data->keterangan, 30) }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->format('d M Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->format('d M Y') }}</td>
                                             <td>
                                                 <a href="{{ route('backend.transaksi.edit', $data->id) }}"
                                                     class="btn btn-sm btn-warning">
