@@ -104,6 +104,6 @@ class TransaksikasController extends Controller
         $transaksi = Transaksikas::findOrfail($id);
         $transaksi->delete();
         toast('Data berhasil dihapus', 'success');
-        return redirect()->route('backend.akun.index');
+        return redirect()->route('backend.transaksi.index');
     }
 }

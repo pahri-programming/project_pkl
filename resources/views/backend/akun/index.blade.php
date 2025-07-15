@@ -78,6 +78,10 @@
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
     <script>
-        new DataTable('#dataAkun');
+        new DataTable('#dataAkun', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/id.json'
+            }
+        });
     </script>
 @endpush

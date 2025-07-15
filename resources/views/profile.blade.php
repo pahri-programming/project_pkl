@@ -27,8 +27,6 @@
                     <div class="card-header text-center bg-white">
                         <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=0D8ABC&color=fff&size=80"
                             class="rounded-circle mb-2" alt="Avatar" width="80" height="80">
-                        <h5 class="mb-0">{{ Auth::user()->name }}</h5>
-                        <small class="text-muted">{{ Auth::user()->email }}</small>
                     </div>
 
                     <div class="card-body">

@@ -33,12 +33,13 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->user->name }}</td>
                                             <td>Rp {{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->translatedFormat('d F Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->translatedFormat('d F Y') }}
+                                            </td>
                                             <td>
                                                 <a href="{{ route('backend.pembayaran.edit', $data->id) }}"
                                                     class="btn btn-sm btn-warning">
                                                     Edit
-                                                </a> 
+                                                </a>
                                                 <a href="{{ route('backend.pembayaran.destroy', $data->id) }}"
                                                     class="btn btn-sm btn-danger" data-confirm-delete="true">
                                                     Delete
@@ -63,6 +64,10 @@
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
     <script>
-        new DataTable('#dataPembayaran');
+        new DataTable('#dataPembayaran', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/id.json'
+            }
+        });
     </script>
 @endpush

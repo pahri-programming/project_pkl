@@ -9,7 +9,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header bg-secondary text-white">
-                        Data Transaksi 
+                        Data Transaksi
                         <a href="{{ route('backend.transaksi.create') }}" class="btn btn-info btn-sm"
                             style="text-color:white;  float: right">
                             Tambah
@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table" id="dataCategory">
+                            <table class="table" id="datatransaksi">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -32,19 +32,32 @@
                                     @foreach ($transaksi as $data)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $data->jenis }}</td>
-                                            <td>Rp {{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                                            <td>
+                                                @if ($data->jenis == 'pengeluaran')
+                                                    <span class="badge bg-danger text-dark">Pengeluaran</span>
+                                                @elseif($data->jenis == 'pemasukan')
+                                                    <span class="badge bg-success text-dark">Pemasukan</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($data->jenis == 'pengeluaran')
+                                                   - Rp {{ number_format($data->jumlah, 0, ',', '.') }}
+                                                @elseif($data->jenis == 'pemasukan')
+                                                   + Rp {{ number_format($data->jumlah, 0, ',', '.') }}
+                                                @endif
+                                            </td>
                                             <td>{{ Str::limit($data->keterangan, 30) }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->format('d M Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->format('d M Y') }}
+                                            </td>
                                             <td>
                                                 <a href="{{ route('backend.transaksi.edit', $data->id) }}"
                                                     class="btn btn-sm btn-warning">
                                                     Edit
-                                                </a> 
+                                                </a>
                                                 <a href="{{ route('backend.transaksi.show', $data->id) }}"
                                                     class="btn btn-sm btn-success">
                                                     Show
-                                                </a> 
+                                                </a>
                                                 <a href="{{ route('backend.transaksi.destroy', $data->id) }}"
                                                     class="btn btn-sm btn-danger" data-confirm-delete="true">
                                                     Delete
@@ -69,6 +82,10 @@
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
     <script>
-        new DataTable('#dataCategory');
+        new DataTable('#datatransaksi', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/id.json'
+            }
+        });
     </script>
 @endpush

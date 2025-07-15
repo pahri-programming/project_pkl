@@ -10,7 +10,9 @@
                 <div class="row gy-5 justify-content-between">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2><span>Dana </span><span class="accent">Kas</span></h2>
-                        <p>Menampilkan Saldo Kas Dan Pengeluaran</p>
+                        <p>DanaKas adalah aplikasi berbasis web yang dirancang khusus untuk membantu pengelolaan dana kas
+                            kelas secara digital. Dengan DanaKas, pengguna dapat mencatat pemasukan dan pengeluaran kas,
+                            melihat saldo terkini, serta memantau data pembayaran setiap siswa dengan lebih rapi</p>
 
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2">
@@ -67,7 +69,8 @@
                                             <td>{{ $data->jenis }}</td>
                                             <td>{{ number_format($data->jumlah, 0, '.', '.') }}</td>
                                             <td>{{ $data->keterangan }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->translatedFormat('d M Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->translatedFormat('d M Y') }}
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
